@@ -10,11 +10,11 @@ export default function Question() {
     
     const activeQuestionIndex = userAnswers.length;
     const title = QUESTIONS[activeQuestionIndex].text;
-
+    const key = userAnswers.length;
     return (
         <div id="question">
                 <h2>Question {activeQuestionIndex + 1}</h2>
-                <QuestionTimer timeOut={10000}/>
+                <QuestionTimer key={key} timeOut={10000}/>
                 <h2>{title}</h2>
                 <Answers ></Answers>
             </div>
