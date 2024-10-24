@@ -1,12 +1,16 @@
+import Header from "./components/Header";
+import Quiz from "./components/Quiz";
+import QuizContextProvider from "./store/quiz-contex";
+
 function App() {
     return (
-        <div className="App">
-        <header className="App-header">
-            <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-            </p>
-        </header>
-        </div>
+        <QuizContextProvider>
+            <Header />
+            <main>
+                <Quiz />
+            </main>
+        </QuizContextProvider>
+       
     );
 }
 
