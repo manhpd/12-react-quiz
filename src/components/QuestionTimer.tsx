@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { QuizContext } from "../store/quiz-contex";
 
-export default function QuestionTimer({timeOut, key}: {  timeOut: number, key: number,}) {
+export default function QuestionTimer({timeOut}: {  timeOut: number}) {
 
     const [timeLeft, setTimeLeft] = useState(timeOut);
     const { skipQuestion } = useContext(QuizContext);
@@ -12,7 +12,7 @@ export default function QuestionTimer({timeOut, key}: {  timeOut: number, key: n
         return () => {
             clearTimeout(timer);
         };
-    }, [key]);
+    }, []);
     
     useEffect(() => {
         const interval = setInterval(() => { 
@@ -22,7 +22,7 @@ export default function QuestionTimer({timeOut, key}: {  timeOut: number, key: n
         return () => {
             clearInterval(interval);
         };
-    }, [key]);
+    }, []);
     
     return (
         <progress id="question-time" max={timeOut} value={timeLeft} />

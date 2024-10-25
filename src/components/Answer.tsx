@@ -1,15 +1,11 @@
 import { useContext, useRef, useState } from "react";
 import { QuizContext } from "../store/quiz-contex";
 
-export default function Answer({ key, correctAnswer,answer } : { key: number, correctAnswer: string, answer: string }) {
-    const [ answerStatus, setAnswerStatus] = useState("unselected");
-    const {  selectAnswer } = useContext(QuizContext);
+export default function Answer({correctAnswer,answer } : { correctAnswer: string, answer: string }) {
+    const {  answerStatus, selectAnswer, setAnswerStatus } = useContext(QuizContext);
     const buttonRef = useRef<HTMLButtonElement>(null);
     
-
-
-
-    const handelSelectAnswer = (answer: string, index: number) => {
+    const handelSelectAnswer = (answer: string) => {
         setAnswerStatus("selected");
 
         setTimeout(() => {
@@ -35,8 +31,8 @@ export default function Answer({ key, correctAnswer,answer } : { key: number, co
     }
 
     return (
-        <li key={key} className="answer" >
-            <button onClick={() => handelSelectAnswer(answer, key)} className={buttonClass} ref={buttonRef}>
+        <li className="answer" >
+            <button onClick={() => handelSelectAnswer(answer)} className={buttonClass} ref={buttonRef}>
                 {answer}
             </button>
         </li>);
