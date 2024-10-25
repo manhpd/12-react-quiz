@@ -19,7 +19,7 @@ export default function Quiz() {
         return (
             <div id="summary">
                 <img src={quizCompleteImg} alt="Trophy Icon" />
-                <h2>Result {point}/{activeQuestionIndex + 1}</h2>
+                <h2>Result {point}/{activeQuestionIndex}</h2>
                 <ul>
                     {QUESTIONS.map((question, index) => {
                         const userAnswer = userAnswers[index];
